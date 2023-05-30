@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+StepTools
+{% endblock %}
+
+{% block content %}
+<p class="lead text-center">Como não conseguimos alcançar a solução, preparamos aqui alguns vídeos do youtube que podem auxiliar na solução do problema:</p>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for r in recomendacao %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ r.thumbnail }}"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+            <div class="card-body">
+              <p class="card-text">{{ r.title }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="{{ r.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary">Abrir</a>
+                </div>
+                <small class="text-muted">{{ r.duration }} min</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+<p class="lead text-center">Recomendamos a verificar com o fabricante se o equipamento possui suporte ou encontrar um técnico de confiança.</p>
+
+<a href="index" role="button" class="btn btn-primary btn-lg" value="voltaInicio">Recomeçar</a>
+{% endblock %}

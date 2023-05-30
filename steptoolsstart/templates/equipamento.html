@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+StepTools
+{% endblock %}
+
+{% block content %}
+<p class="text-justify lead"> No primeiro passo, inicamos selecionando qual o equipamento que apresentando problemas.</p>
+
+<form action="{% url 'equipamento' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group col-md-4"></div>
+    <a class="text-justify font-weight-light font-weight-bold text-uppercase">Equipamento:</a>   
+    <select name="equipamento" class="form-control" required>
+      <option selected></option>
+      <option value="notebook">Notebook</option>
+      <option value="desktop">Desktop</option>
+    </select>
+    </br>
+    </br>
+    <input class="btn btn-primary" type="submit" value="Avançar">
+  </div>   
+</form>
+
+{% endblock %}

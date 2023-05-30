@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SteoTools{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class ="display-3 text-center font-weight-bold">StepTools</h1>
+        <p class="lead text-center">Ferramenta de passos para alcançar uma solução para um problema de hardware.</p>
+        <hr class="my-4">
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="jumbotron">
+        <div class="container">
+
+            <!-- Trigger the modal with a button -->
+            <p class="text-center">Criado por Janine Gomes Coelho | <a type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">Saiba-mais</a></p>
+          
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Sobre</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center">Bem vindo ao StepTools</h3>
+                            <p class="text-justify">Olá, me chamo Janine, e este site foi desenvolvido para a finalização da minha graduação em Ciência da Computação na Ulbra - Campus Gravataí.</p>
+                            <p class="text-justify">Caso tenha gostado deste site, fique avontade para me contatar em:</p>
+                            <p><li>E-mail: janine.gomes@rede.ulbra.br</li></p>
+                            <p><li>Instagram: <a  target="_blank" rel="noopener noreferrer" href="https://instagram.com/umcoelhoo?igshid=MzNlNGNkZWQ4Mg==">@umcoelhoo</a></li></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+ <!--JS e JQuery-->   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

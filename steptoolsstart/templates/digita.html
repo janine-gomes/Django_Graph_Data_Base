@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+StepTools
+{% endblock %}
+
+{% block content %}
+<form action="{%url 'pesquisa' %}" method="post">
+  {% csrf_token %}
+<p class="text-justify lead"> Realize uma pesquisa descrevendo o problema enfrentado.</p>
+<div class="input-group mb-3">
+    <input type="text" name="digita" class="form-control" placeholder="Digite o problema" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit" id="button-addon2">Pesquisar</button>
+    </div>
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+StepTools
+{% endblock %}
+
+{% block content %}
+<p class="lead text-justify"> Neste passo, selecionamos qual o problema está enfrentando, caso não esteja na lista abaixo, selecione "Problema não listado".</p>
+<a class="text-justify font-weight-light font-weight-bold text-uppercase">Problemas:</a>
+<form action="{%url 'problema' %}" method="post">
+    {% csrf_token %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="no_power" required>
+        <label class="form-check-label" for="exampleRadios1">
+            Equipamento não liga, sem nenhum sinal de energia.
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="no_video" required>
+        <label class="form-check-label" for="exampleRadios3">
+            Equipamento liga mas não gera vídeo na tela.
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="no_post" required>
+        <label class="form-check-label" for="exampleRadios4">
+            Equipamento liga o LED do botão por alguns segundos e apaga ou LED fica piscando.
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="no_boot" required>
+        <label class="form-check-label" for="exampleRadios6">
+            Equipamento apresenta mensagem de "no device bootable found".
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="digitar" required>
+        <label class="form-check-label" for="exampleRadios7">
+            Problema não listado.
+        </label>
+    </div>
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Avançar">
+</form>
+{% endblock %}
