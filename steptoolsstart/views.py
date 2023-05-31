@@ -1,9 +1,15 @@
 from django.shortcuts import render
-import requests 
+import requests
 from django.conf import settings
 from isodate import parse_duration
 from neo4j import GraphDatabase
-driver = GraphDatabase.driver('neo4j+s://5841d246.databases.neo4j.io', auth=('neo4j', 'GnhHM-cz_eYV6H9Z-eiEczqG_1BptzeoDAK8C68ak38'))
+#driver = GraphDatabase.driver('neo4j+s://5841d246.databases.neo4j.io', auth=('neo4j', 'GnhHM-cz_eYV6H9Z-eiEczqG_1BptzeoDAK8C68ak38'))
+
+
+URI = 'neo4j+s://05f1f611.databases.neo4j.io'
+AUTH = 'neo4j', 'auNorvZxoEhF44NVrXuexB0fOs7JSGOeKlUL23mNo70'
+with GraphDatabase.driver(URI, auth=AUTH) as driver:
+    driver.verify_connectivity()
 
 #Função conecta a API do youtube para os vídeos de recomendação/pesquisa
 def buscaVideos(texto):
@@ -64,6 +70,8 @@ def buscaTeste(query):
                 'solucao': teste.value('t.solucao')
             }
             r.append(results)
+    session.close()
+    driver.close()
     return r
 
 #Função realiza consulta pelas chaves dentro da categoria de problema
@@ -79,6 +87,8 @@ def buscaKeyCategoria():
                 'nome': teste.value('p.nomeCategoria')
             }
             r.append(results)
+    session.close()
+    driver.close()
     return r
 
 #Função que realiza verificação do problema e equipamento para chamar a função buscaTeste
