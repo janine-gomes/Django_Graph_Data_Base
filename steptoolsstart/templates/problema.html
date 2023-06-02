@@ -7,7 +7,7 @@ StepTools
 {% block content %}
 <p class="lead text-justify"> Neste passo, selecionamos qual o problema está enfrentando, caso não esteja na lista abaixo, selecione "Problema não listado".</p>
 <a class="text-justify font-weight-light font-weight-bold text-uppercase">Problemas:</a>
-<form action="{%url 'problema' %}" method="post">
+<form action="{%url 'confirmadados' %}" method="post">
     {% csrf_token %}
     <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="no_power" required>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+StepTools
+{% endblock %}
+
+{% block content %}
+<p class="lead">Você informou:</p>
+<span class="lead text-capitalize"><li>Equipamento: {{context.equipamento}} </li></span>
+<span class="lead"> <li>Problema: {{context.problema}}</li></span>
+<p></p>
+<p class="lead text-justify">Para iniciar a sequência de passos clique no botão abaixo para seguir.</p>
+<a href="teste" class="btn btn-primary" value="iniciaTeste">Iniciar</a>
+{% endblock %}
