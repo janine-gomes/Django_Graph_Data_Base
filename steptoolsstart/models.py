@@ -4,10 +4,10 @@ from isodate import parse_duration
 from neo4j import GraphDatabase
 
 def tamDicionario(results):
-    t = len(results)-1
+    t = len(results)
     return t
-def decrementador(cont):
-    contador = cont - 1
+def crementador(cont):
+    contador = cont + 1
     return contador 
 
 #Conexão com banco de dados
@@ -25,7 +25,7 @@ def buscaTeste(query):
     with driverIn.session() as session:
         info = session.run(query)
         for teste in info:
-            print(teste.value('t.code'), teste.value('t.teste'), teste.value('t.conhecimento'), teste.value('t.solucao'))
+            #print(teste.value('t.code'), teste.value('t.teste'), teste.value('t.conhecimento'), teste.value('t.solucao'))
             resultadoBanco = {
                 'id': teste.value('t.code'),
                 'teste': teste.value('t.teste'),
@@ -129,9 +129,9 @@ def preparaTeste(equipamento,problema):
             query = "match (t:Testes)-[:ATUA]-(p:Problema {nomeCategoria:'no_boot'}) WHERE t.equipamento CONTAINS 'notebook' or t.equipamento CONTAINS 'ambos' RETURN t.code, t.teste, t.componente, t.conhecimento, t.solucao"
             results = buscaTeste(query)
             #print(results)      
+    results.reverse()
     #Retorna o dicionario com os testes
-    
-    return results        
+    return results      
 
 # Busca API Youtube
 #Função conecta a API do youtube para os vídeos de recomendação/pesquisa

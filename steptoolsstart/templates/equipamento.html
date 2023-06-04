@@ -6,7 +6,6 @@ StepTools
 
 {% block content %}
 <p class="text-justify lead"> No primeiro passo, inicamos selecionando qual o equipamento que apresentando problemas.</p>
-
 <form action="{% url 'problema' %}" method="post">
   {% csrf_token %}
   <div class="form-group col-md-4"></div>
@@ -21,5 +20,4 @@ StepTools
     <button class="btn btn-primary" type="submit" name="botao" value="avancar">Avançar</button>
   </div>   
 </form>
-
 {% endblock %}
