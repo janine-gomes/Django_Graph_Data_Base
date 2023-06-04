@@ -3,6 +3,51 @@ from django.conf import settings
 from isodate import parse_duration
 from neo4j import GraphDatabase
 
+#gettins e settings
+cont = 0
+t = 0
+results = []
+equipamento = None
+problema = None
+
+#cont
+def set_cout(value):
+    global cont
+    cont = value
+
+def get_cout():
+    return cont
+#T
+def set_t(value):
+    global t
+    t = value
+
+def get_t():
+    return t
+#Results
+def set_results(value):
+    global results
+    results = value
+
+def get_results():
+    return results
+
+#Equipamento
+def set_equipamento(value):
+    global equipamento
+    equipamento = value
+
+def get_equipamento():
+    return equipamento
+
+#Problema
+def set_problema(value):
+    global problema
+    problema = value
+
+def get_problema():
+    return problema
+
 def tamDicionario(results):
     t = len(results)
     return t
@@ -12,9 +57,7 @@ def crementador(cont):
 
 #Conexão com banco de dados
 def conectaBanco():
-    URI = 'neo4j+s://05f1f611.databases.neo4j.io'
-    AUTH = 'neo4j', 'auNorvZxoEhF44NVrXuexB0fOs7JSGOeKlUL23mNo70'
-    driver = GraphDatabase.driver(URI, auth=AUTH)
+    driver = GraphDatabase.driver(settings.URI, auth=settings.AUTH)
     return driver
 
 #Função realiza a consulta no banco de dados Neo4j, criando um dicionario de testes

@@ -81,7 +81,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+URI = 'neo4j+s://05f1f611.databases.neo4j.io'
+AUTH = 'neo4j', 'auNorvZxoEhF44NVrXuexB0fOs7JSGOeKlUL23mNo70'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
