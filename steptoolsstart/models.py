@@ -47,11 +47,13 @@ def set_problema(value):
 
 def get_problema():
     return problema
-
+#------------------------
+#Define tamanho da lista com os testes
 def tamDicionario(results):
     t = len(results)
     return t
-def crementador(cont):
+#Incrementa a variavel cont
+def incrementador(cont):
     contador = cont + 1
     return contador 
 
@@ -99,6 +101,7 @@ def buscaKeyCategoria():
     driver.close()
     return r
 
+#Coleta os dados inseridos pelo usuário, para que o cliente confirme o que foi selecionado
 def coletaDado(equipamento, problema):
     if problema == 'no_video':
         context = {
@@ -121,7 +124,8 @@ def coletaDado(equipamento, problema):
             'problema': 'Equipamento apresenta mensagem de "no device bootable found".'
         }
     return context    
-        
+
+#Chama o buscaTeste com a query correta de acordo com o problema selecionado e equipamento        
 def preparaTeste(equipamento,problema):
     #Pega o problema que o usuário selecionou
     results=[]
@@ -176,7 +180,7 @@ def preparaTeste(equipamento,problema):
     #Retorna o dicionario com os testes
     return results      
 
-# Busca API Youtube
+#Busca API Youtube
 #Função conecta a API do youtube para os vídeos de recomendação/pesquisa
 def buscaVideosAPI(texto):
     videos=[]
@@ -187,7 +191,7 @@ def buscaVideosAPI(texto):
             'q' : texto,
             'key' : settings.YOUTUBE_DATA_API_KEY,
             'maxResults' : 6,
-            'topicId':'computador',
+            'topicId':{"28": "Science & Technology"},
             'type' : 'video'
         }
 

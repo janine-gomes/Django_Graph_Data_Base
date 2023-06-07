@@ -57,7 +57,7 @@ def iniciaTeste(request):
             print(models.get_cout(),models.get_t())
             return render(request,'final.html', {'teste': models.get_results()[models.get_cout()]})
         elif (resultado == 'nao') or (resultado =='nao se aplica'):
-            models.set_cout(models.crementador(models.get_cout()))
+            models.set_cout(models.incrementador(models.get_cout()))
             print(models.get_cout(),models.get_t())
             if models.get_cout() < models.get_t():
                 print('passouuuuuuu')
@@ -70,28 +70,28 @@ def iniciaTeste(request):
                     texto = '{} não liga'.format(models.get_equipamento())
                     recomendacao = models.buscaVideosAPI(texto)
                     print(texto)                        
-                    #set_cout(get_t())
+                   
                     return render(request,'recomendacao.html', {'recomendacao': recomendacao})
                 elif models.get_problema() == 'no_video':
                     print('final dos testes')
                     texto = '{} não liga a tela'.format(models.get_equipamento())
                     recomendacao = models.buscaVideosAPI(texto)
                     print(texto)                        
-                    #set_cout(get_t())
+                    
                     return render(request,'recomendacao.html', {'recomendacao': recomendacao})
                 elif models.get_problema() == 'no_post':
                     print('final dos testes')
                     texto = '{} liga led mas não inicia'.format(models.get_equipamento())
                     recomendacao = models.buscaVideosAPI(texto)
                     print(texto)                        
-                    #set_cout(get_t())
+                    
                     return render(request,'recomendacao.html', {'recomendacao': recomendacao})
                 elif models.get_problema() == 'no_boot':
                     print('final dos testes')
                     texto = '{} falha no boot'.format(models.get_equipamento())
                     recomendacao = models.buscaVideosAPI(texto)
                     print(texto)                        
-                    #set_cout(get_t())
+                    #
                     return render(request,'recomendacao.html', {'recomendacao': recomendacao})
         else:      
             return render(request,'teste.html', {'teste':'nada'})

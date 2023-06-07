@@ -6,6 +6,7 @@ StepTools
 
 {% block content %}
 <form method="post" action="{%url 'teste' %}">
+    {% csrf_token %}
     <p class="lead">Testes relacionados ao(s) componente(s):<strong> {{teste.componente}}</strong>.</p>
     {% if teste.conhecimento == 1 %}
         <p class="lead">Nível de conhecimento técnico: <strong>Básico</strong>.</p>
@@ -16,18 +17,16 @@ StepTools
     {% if teste.conhecimento == 3 %}
         <p class="lead">Nível de conhecimento técnico: <strong>Avançado</strong>.</p>
     {%endif%}
-    {% csrf_token %}
+    <!--<img src="{{ teste.exemplo }}" class="img-thumbnail">-->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="d-flex justify-content-center">
                 <p class="lead">{{teste.teste}}</p>
             </div>
-            <div>
+            <div class="text-center">
                     <button class="btn btn-primary" type="submit" name="botao" value="sim">Sim</button>
                     <button class="btn btn-primary" type="submit" name="botao" value="nao">Não</button>
                     <button class="btn btn-primary" type="submit" name="botao" value="nao se aplica">Não se aplica</button>
-                <!--<button class="btn btn-primary" type="submit" name="botao" value="sim">Sim</button>
-                    <button class="btn btn-primary" type="submit" name="botao" value="nao">Não</button>-->
             </div>
         </div>
     </div>   
